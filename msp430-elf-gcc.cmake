@@ -1,0 +1,26 @@
+set(CMAKE_SYSTEM_NAME Generic)
+
+set(TOOLCHAIN_PATH "/opt/ti/msp430-gcc")
+
+set(TOOLCHAIN_PREFIX   "msp430-elf-")
+set(CMAKE_C_COMPILER   "${TOOLCHAIN_PREFIX}gcc")
+set(CMAKE_CXX_COMPILER "${TOOLCHAIN_PREFIX}g++")
+set(CMAKE_LINKER       "${TOOLCHAIN_PREFIX}ld")
+
+set(CMAKE_FIND_ROOT_PATH ${TOOLCHAIN_PATH})
+
+# adjust the default behavior of the FIND_XXX() commands:
+# search programs in the host environment
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+
+# search headers and libraries in the target environment
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+
+set(CMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES "${TOOLCHAIN_PATH}/include")
+set(CMAKE_C_STANDARD_INCLUDE_DIRECTORIES "${TOOLCHAIN_PATH}/include")
+set(CMAKE_ASM_STANDARD_INCLUDE_DIRECTORIES "${TOOLCHAIN_PATH}/include")
+
+set(CMAKE_EXE_LINKER_FLAGS
+    "-L'${TOOLCHAIN_PATH}/include'"
+)
