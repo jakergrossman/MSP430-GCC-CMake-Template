@@ -1,0 +1,9 @@
+BasedOnStyle: LLVM
+PointerAlignment: Left
+IndentWidth: 4
+AccessModifierOffset: -4
+SortIncludes: Never
+NamespaceIndentation: All
+AlwaysBreakTemplateDeclarations: No
+ColumnLimit: 100
+BreakBeforeBraces: Allman
